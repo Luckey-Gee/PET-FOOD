@@ -2,12 +2,12 @@ package com.example.vistas5
 
 class ComidaMascotaProvider {
     companion object{
-        val comidaMascotaList = listOf<comidaMascota>(
+        val comidaMascotaList = listOf(
             comidaMascota(
                 "Perro",
                 "Adulto",
                 "Dog Chow",
-                "https://images.app.goo.gl/UC4Duk3mavHqKbXH9"
+                "https://images.app.goo.gl/YugquDjQ9u49KJu18.jpg"
             ),comidaMascota(
                 "Perro",
                 "Mediano",
