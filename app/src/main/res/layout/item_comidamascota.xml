@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="16dp"
@@ -14,13 +15,14 @@
             android:id="@+id/ivComida"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:background="#ffff"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvMarca"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="61dp"
+            android:layout_height="26dp"
             android:layout_marginTop="4dp"
             android:text="@string/marca"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -35,10 +37,11 @@
             android:id="@+id/tvAnimal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="8dp"
             android:text="@string/animal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.405"
             app:layout_constraintStart_toEndOf="@+id/ivComida"
             app:layout_constraintTop_toBottomOf="@+id/tvMarca" />
 
@@ -46,14 +49,25 @@
             android:id="@+id/tvEdad"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:text="@string/edad"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.918"
-            app:layout_constraintStart_toEndOf="@+id/ivComida"
-            app:layout_constraintTop_toBottomOf="@+id/tvAnimal"
-            app:layout_constraintVertical_bias="0.4" />
+            app:layout_constraintHorizontal_bias="0.715"
+            app:layout_constraintStart_toEndOf="@+id/tvAnimal"
+            app:layout_constraintTop_toBottomOf="@+id/tvMarca"
+            app:layout_constraintVertical_bias="0.08" />
+
+        <Button
+            android:id="@+id/btnBorrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="84dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/borrar"
+            android:text="Eliminar"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivComida" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
