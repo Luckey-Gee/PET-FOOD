@@ -8,7 +8,7 @@ import com.example.vistas5.R
 import com.example.vistas5.comidaMascota
 
 class ComidaMascotaAdapter(
-    private val comidamascotaList:List<comidaMascota>,
+    private var comidamascotaList:List<comidaMascota>,
     private val onClickListener:(comidaMascota) -> Unit,
     private val onClickDelete:(Int) -> Unit
     ) : RecyclerView.Adapter<ComidaMascotaViewHolder>() {
@@ -26,4 +26,11 @@ class ComidaMascotaAdapter(
     }
 
     override fun getItemCount(): Int = comidamascotaList.size
+
+    fun updateComida (comidamascotaList:List<comidaMascota>){
+        this.comidamascotaList = comidamascotaList
+        notifyDataSetChanged()
+
+    }
+
 }

@@ -3,6 +3,7 @@ package com.example.vistas5
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vistas5.adapter.ComidaMascotaAdapter
 import com.example.vistas5.databinding.ActivityMainBinding
@@ -18,6 +19,13 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnAddComida.setOnClickListener {agregarAlimento()}
+        binding.etFiltrar.addTextChangedListener { userFilter ->
+
+        val comidaMascotaFilter = comidaMascotaMutableList.filter { alimentoMascota ->
+            alimentoMascota.marca.lowercase().contains(userFilter.toString().lowercase())
+        }
+        adapter.updateComida(comidaMascotaFilter)
+        }
         initRecicleView()
     }
 
