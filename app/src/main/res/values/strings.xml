@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Vistas 5</string>
+    <string name="app_name">Pet Food</string>
     <string name="marca">Marca</string>
     <string name="animal">Animal</string>
     <string name="edad">Edad</string>

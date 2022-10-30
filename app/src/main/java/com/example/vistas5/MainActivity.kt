@@ -1,12 +1,18 @@
 package com.example.vistas5
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log.*
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vistas5.adapter.ComidaMascotaAdapter
 import com.example.vistas5.databinding.ActivityMainBinding
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -19,14 +25,30 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.btnAddComida.setOnClickListener {agregarAlimento()}
+        configFilter()
+        initRecicleView()
+        configSwipe()
+    }
+
+    private fun configSwipe() {
+        binding.swipe.setProgressBackgroundColorSchemeColor(ContextCompat.getColor(this, R.color.white))
+        binding.swipe.setColorSchemeResources(R.color.purple_700, R.color.teal_200, R.color.teal_700, R.color.black)
+        binding.swipe?.setOnRefreshListener {
+            i("Agu ante", "Boca")
+            Handler(Looper.getMainLooper()).postDelayed({
+                binding.swipe!!.isRefreshing = false
+            },  3000)
+        }
+    }
+
+    private fun configFilter() {
         binding.etFiltrar.addTextChangedListener { userFilter ->
 
-        val comidaMascotaFilter = comidaMascotaMutableList.filter { alimentoMascota ->
-            alimentoMascota.marca.lowercase().contains(userFilter.toString().lowercase())
+            val comidaMascotaFilter = comidaMascotaMutableList.filter { alimentoMascota ->
+                alimentoMascota.marca.lowercase().contains(userFilter.toString().lowercase())
+            }
+            adapter.updateComida(comidaMascotaFilter)
         }
-        adapter.updateComida(comidaMascotaFilter)
-        }
-        initRecicleView()
     }
 
     private fun agregarAlimento() {
